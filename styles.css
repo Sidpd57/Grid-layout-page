@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Labrada&family=Orbitron:wght@900&family=Quicksand:wght@400;700&display=swap');
+
+/* css custom properties  */
+:root {
+    --clr-primary-400: hsl(60, 100%, 50%);
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-background-black: hsl(0, 0%, 0%);
+    --clr-background-gray: hsla(0, 0%, 50%, 0.299);
+
+    --ff-labrada: 'Labrada', serif;
+    --ff-quicksand:'Quicksand', sans-serif;
+    --ff-orbitron: 'Orbitron', sans-serif;
+
+    --fw-regular: 400;
+    --fw-thick: 700;
+    --fw-bold:900;
+
+    --fs-regular:1.5rem;
+    --fs-title: 3rem; 
+
+
+}
+
+/* css reset  */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+
+/* GENERAL STYLING */
+
+
+body {
+    font-family: var(--ff-labrada);
+    display: grid;
+    /* grid-template-rows: 10em 50vh auto 10em;
+    grid-template-columns: 1fr 5fr 2fr 1fr;
+    grid-template-areas: 
+    "header header header header"
+    "hero hero hero hero"
+    ". main sidebar ."
+    "footer footer footer footer"; */
+    grid-template: "header header header header" 10em
+    "hero hero hero hero" 50vh
+    ". main sidebar ." auto
+    "footer footer footer footer" 10em
+    / 1fr minmax(30em,5fr) minmax(15em,2fr) 1fr;
+    grid-column-gap: 1.5rem;
+}
+
+header {
+    grid-area: header;
+}
+
+.hero {
+    grid-area: hero;
+    background-image: url("https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80");
+    background-repeat: repeat;
+    /* background-size:cover; */
+    color: var(--clr-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    grid-area: main;
+}
+
+aside {
+    grid-area: sidebar;
+    background-color: var(--clr-background-gray);
+    padding: 2em;
+}
+
+.sidebar__heading {
+    padding-bottom: 0.5em;
+}
+
+footer {
+    grid-area: footer;
+}
+
+header, footer {
+    background-color: var(--clr-background-black);
+    color: var(--clr-primary-400);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__title, .footer__title {
+    font-size: var(--fs-title);
+    font-weight: var(--fw-thick);
+    font-family: var(--ff-orbitron);
+}
+
+.hero__title {
+    font-size: var(--fs-title);
+    font-weight: var(--fw-bold);
+    font-family: var(--ff-orbitron);
+    color: var(--clr-primary-400);
+}
+
+.card {
+  display: grid;
+  gap: 1.5rem;
+  /* grid-template-columns: 1fr 3fr;
+  grid-template-rows: min-content auto; 
+  grid-template-areas: "img title"
+  "img content"; */
+  grid-template: "img title" min-content
+  "img content" auto /
+  1fr 3fr;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.557);
+  padding: 1.5rem;
+  margin: 1.5em;
+}
+
+.card__img {
+  grid-area: img;
+}
+
+.card__title {
+  grid-area: title;
+}
+
+.card__content {
+  grid-area: content;
+}
+
+main h1 {
+  padding: 1rem;
+}
